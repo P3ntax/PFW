@@ -1,0 +1,9 @@
+name="PFW"
+path="mod/pfw/"
+tags={
+	"Balance"
+	"Fixes"
+	"Gameplay"
+}
+remote_file_id="1366301064"
+supported_version="1.6.*"

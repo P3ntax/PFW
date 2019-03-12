@@ -1,0 +1,20 @@
+﻿division_template = {
+	name = "Brigada de Infanteria"	# Mostly a reserve force with outdated equipment
+	division_names_group = SPAN_INFB_01
+
+	regiments = {
+		infantry = { x = 0 y = 0 }
+		infantry = { x = 0 y = 1 }
+		infantry = { x = 1 y = 0 }
+		infantry = { x = 1 y = 1 }
+	}
+}
+
+units = {
+}
+
+##### No Notable Air Forces #####
+
+
+instant_effect = {
+}
