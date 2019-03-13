@@ -4,6 +4,3 @@ NDefines_Graphics.NWiki.FORUM_URL = "https://docs.google.com/document/d/1OofIDRD
 
 NDefines_Graphics.NGraphics.BLOOM_WIDTH = 0
 NDefines_Graphics.NGraphics.BLOOM_SCALE = 0
-
-NDefines_Graphics.NMapMode.MAP_MODE_TERRAIN_TRANSPARENCY = 1
-NDefines_Graphics.NMapMode.MAP_MODE_NAVAL_TERRAIN_TRANSPARENCY = 1
