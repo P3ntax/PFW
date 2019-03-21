@@ -30,6 +30,7 @@ NDefines.NCountry.BOMBING_WAR_SUPPORT_PENALTY_SCALE = -0.00010			-- Scaling of b
 NDefines.NCountry.MAX_BOMBING_WEEKLY_WAR_SUPPORT_PENALTY = -0.002			-- Max penalty that will gained per week from bomber's damage
 NDefines.NCountry.BOMBING_WEEKLY_WAR_SUPPORT_PENALTY_DECAY = 0.008		-- Weekly decay of bomber damage war support penalty
 NDefines.NCountry.MAX_BOMBING_WAR_SUPPORT_IMPACT = -0.25					-- Max total penalty from bomber's damage
+NDefines.NCountry.BASE_MAX_COMMAND_POWER = 500.0
 
 
 NDefines.NProduction.MIN_LICENSE_ACTIVE_DAYS = 1
@@ -38,6 +39,9 @@ NDefines.NProduction.DEFAULT_MAX_NAV_FACTORIES_PER_LINE = 15
 NDefines.NProduction.CONVOY_MAX_NAV_FACTORIES_PER_LINE = 30
 NDefines.NProduction.CAPITAL_SHIP_MAX_NAV_FACTORIES_PER_LINE = 10
 NDefines.NProduction.MAX_MIL_FACTORIES_PER_LINE = 200
+
+
+NDefines.NBuildings.NAVALBASE_REPAIR_MULT = 0.10
 
 
 NDefines.NMilitary.CORPS_COMMANDER_DIVISIONS_CAP = 100 
@@ -58,8 +62,8 @@ NDefines.NMilitary.RIVER_CROSSING_PENALTY_LARGE = -0.3
 NDefines.NMilitary.PLAYER_ORDER_PLANNING_DECAY = 0.04
 
 
-NDefines.NAir.COMBAT_DAMAGE_SCALE_CARRIER = 1
-NDefines.NAir.NAVAL_COMBAT_EXTERNAL_PLANES_JOIN_RATIO = 0.03
+NDefines.NAir.COMBAT_DAMAGE_SCALE_CARRIER = 3
+NDefines.NAir.NAVAL_COMBAT_EXTERNAL_PLANES_JOIN_RATIO = 0.10
 NDefines.NAir.STRATEGIC_BOMBER_NUKE_AIR_SUPERIORITY = 0.80
 NDefines.NAir.ANTI_AIR_PLANE_DAMAGE_FACTOR = 0.8
 NDefines.NAir.ANTI_AIR_PLANE_DAMAGE_CHANCE = 0.1
@@ -89,11 +93,12 @@ NDefines.NAir.BOMBING_STATE_BUILD_PRIO_SCALE = 1
 NDefines.NAir.BOMBING_INFRA_PRIO_SCALE = 0.5
 
 
-NDefines.NNavy.ADMIRAL_TASKFORCE_CAP = 15
+NDefines.NNavy.ADMIRAL_TASKFORCE_CAP = 10
 NDefines.NNavy.CARRIER_STACK_PENALTY_EFFECT = 10.0
 NDefines.NNavy.DETECTION_SUBS_CHANCE_BALANCE = 45000.0
 NDefines.NNavy.CONVOY_EFFICIENCY_MIN_VALUE = 0.20
 NDefines.NNavy.NAVAL_MINES_IN_REGION_MAX = 50.0
+NDefines.NNavy.COMBAT_CRITICAL_DAMAGE_MULT = 3.0
 
 NDefines.NNavy.MIN_GUN_COOLDOWN = 0.5											-- minimum cooldown for a gun	
 NDefines.NNavy.BASE_GUN_COOLDOWNS = { -- number of hours for a gun to be ready after shooting
