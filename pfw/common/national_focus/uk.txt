@@ -200,38 +200,14 @@ focus_tree = {
 			}
 		}
 	}
-	focus = {
-		id = ENG_motorized_focus
-		prerequisite = { focus = limited_rearmament_focus }
-		available = { 			
-		}
-		icon = GFX_goal_generic_army_motorized
-		x = 0
-		y = 1
-		relative_position_id = limited_rearmament_focus
-		cost = 10
-		ai_will_do = {
-			factor = 1
-		}
-
-		available_if_capitulated = yes
-
-		completion_reward = {
-			add_tech_bonus = {
-				name = armor_bonus
-				bonus = 1.0
-				uses = 1
-				category = motorized_equipment
-			}
-		}
-	}
+	
 	focus = {
 		id = ENG_tank_focus
-		prerequisite = { focus = ENG_motorized_focus }
+		prerequisite = { focus = limited_rearmament_focus }
 		icon = GFX_goal_generic_army_tanks
 		x = 0
 		y = 1
-		relative_position_id = ENG_motorized_focus
+		relative_position_id = limited_rearmament_focus
 		cost = 10
 		ai_will_do = {
 			factor = 1
@@ -666,7 +642,7 @@ focus_tree = {
 		continue_if_invalid = yes
 
 		icon = GFX_goal_generic_consumer_goods
-		x = 4
+		x = 2
 		y = 1
 		relative_position_id = limited_rearmament_focus
 		cost = 10
@@ -1434,7 +1410,7 @@ focus_tree = {
 		prerequisite = { focus = uk_destroyer_focus }
 		icon = GFX_goal_generic_navy_anti_submarine
 		x = 0
-		y = 2
+		y = 3
 		relative_position_id = uk_destroyer_focus
 		cost = 10
 		ai_will_do = {
@@ -1482,7 +1458,7 @@ focus_tree = {
 		prerequisite = { focus = uk_convoy_focus }
 		icon = GFX_goal_generic_navy_doctrines_tactics
 		x = 0
-		y = 2
+		y = 1
 		offset = {
 			x = 0
 			y = -1
@@ -1764,7 +1740,7 @@ focus_tree = {
 			num_subjects > 0
 		} 
 		icon = GFX_goal_generic_national_unity
-		x = 28
+		x = 18
 		y = 0
 		offset = {
 			x = -2
@@ -1806,7 +1782,7 @@ focus_tree = {
 			}
 		}
 		relative_position_id = uk_empire_focus
-		cost = 10
+		cost = 5
 
 		available_if_capitulated = yes
 
@@ -1831,10 +1807,10 @@ focus_tree = {
 			}
 		} 
 		icon = GFX_goal_generic_construct_military
-		x = 5
+		x = 3
 		y = 1
 		relative_position_id = uk_service_focus
-		cost = 10
+		cost = 5
 		completion_reward = {
 			if = {
 				limit = {
@@ -1867,7 +1843,7 @@ focus_tree = {
 				}
 				add_building_construction = {
 					type = air_base
-					level = 3
+					level = 4
 					instant_build = yes
 				}
 			}
@@ -1881,10 +1857,10 @@ focus_tree = {
 			118 = { is_owned_and_controlled_by = ENG }
 		} 
 		icon = GFX_goal_generic_construct_military
-		x = -3
+		x = -1
 		y = 1
 		relative_position_id = uk_mediterranean_focus
-		cost = 10
+		cost = 5
 		completion_reward = {
 			118 = {
 				add_building_construction = {
@@ -1895,460 +1871,25 @@ focus_tree = {
 				}
 				add_building_construction = {
 					type = coastal_bunker
-					level = 1
+					level = 2
 					province = 4135
 					instant_build = yes
 				}
 				add_building_construction = {
 					type = air_base
-					level = 2
+					level = 6
 					instant_build = yes
 				}
 				add_building_construction = {
 					type = anti_air_building
-					level = 2
-					instant_build = yes
-				}
-			}
-		}
-	}
-	focus = {
-		id = uk_spain_focus
-		prerequisite = { focus = uk_mediterranean_focus }
-		mutually_exclusive = { focus = uk_rock_focus }
-
-		available = {
-			any_other_country = {
-				original_tag = SPR
-				exists = yes
-				has_war = no
-				NOT = { is_in_faction_with = ENG }
-			}
-			NOT = { has_government = communism }
-		} #SPA/SPR not in a faction
-		#prerequisite = { focus = uk_carrier_focus }
-		icon = GFX_goal_generic_demand_territory
-		x = -1
-		y = 1
-		relative_position_id = uk_mediterranean_focus
-		cost = 10
-		ai_will_do = {
-			factor = 1
-		}	
-		completion_reward = {
-			# + relations with SPA/SPR - they become more democratic and like fascist/commies less
-			if = {
-				limit = {
-					has_government = democratic
-				}
-				every_other_country = {
-					limit = {
-						original_tag = SPR
-					}
-					add_opinion_modifier = { target = ENG modifier = democratic_leanings_good }
-					add_ideas = democratic_influence
-					country_event = { id = generic.1 }
-					every_other_country = {
-						limit = { 
-							NOT = { has_government = democratic }
-							num_of_factories > 30
-						}
-						add_opinion_modifier = { target = PREV modifier = democratic_leanings_bad }
-					}
-				}
-			}
-			if = {
-				limit = {
-					has_government = fascism
-				}
-				every_other_country = {
-					limit = {
-						original_tag = SPR
-					}
-					add_opinion_modifier = { target = ENG modifier = fascism_leanings_good }
-					add_ideas = fascist_influence
-					country_event = { id = generic.1 }
-					every_other_country = {
-						limit = { 
-							NOT = { has_government = fascism }
-							num_of_factories > 30
-						}
-						add_opinion_modifier = { target = PREV modifier = fascism_leanings_bad }
-					}
-				}
-			}
-			if = {
-				limit = {
-					has_government = neutrality
-				}
-				every_other_country = {
-					limit = {
-						original_tag = SPR
-					}
-					add_opinion_modifier = { target = ENG modifier = neutrality_leanings_good }
-					add_ideas = neutrality_influence
-					country_event = { id = generic.1 }
-					every_other_country = {
-						limit = { 
-							NOT = { has_government = fascism }
-							num_of_factories > 30
-						}
-						add_opinion_modifier = { target = PREV modifier = neutrality_leanings_bad }
-					}
-				}
-			}
-			hidden_effect = {
-				news_event = { hours = 5 id = news.224 }
-			}
-		}
-	}
-
-	focus = {
-		id = uk_protect_suez
-		prerequisite = { focus = uk_mediterranean_focus }
-		icon = GFX_goal_generic_defence
-		x = 0
-		y = 2
-		relative_position_id = uk_mediterranean_focus
-		cost = 10
-		ai_will_do = {
-			factor = 1
-		}
-
-		available = {
-			447 = {
-				CONTROLLER = {
-					OR = {
-						tag = ENG
-						is_subject_of = ENG
-					}
-				}
-			}
-		}
-
-		available_if_capitulated = yes
-
-		# Needs province based trigger to work properly
-		#bypass = {
-		#	447 = {
-		#		free_building_slots = {
-		#			building = coastal_bunker
-		#			size < 1
-		#		}
-		#		free_building_slots = {
-		#			building = naval_base
-		#			size < 1
-		#		}
-		#		free_building_slots = {
-		#			building = air_base
-		#			size < 1
-		#		}
-		#		free_building_slots = {
-		#			building = bunker
-		#			size < 1
-		#		}
-		#	}
-		#}
-
-		completion_reward = {
-			447 = {
-				add_building_construction = {
-					type = coastal_bunker
-					level = 2
-					province = 4076
-					instant_build = yes
-				}
-				add_building_construction = {
-					type = air_base
-					level = 3
-					instant_build = yes
-				}
-				add_building_construction = {
-					type = bunker
-					level = 2
-					province = 1071
-					instant_build = yes
-				}
-				add_building_construction = {
-					type = anti_air_building
-					level = 2
+					level = 4
 					instant_build = yes
 				}
 			}
 		}
 	}
 
-	focus = {
-		id = uk_balkan_strategy
-		prerequisite = { focus = uk_protect_suez }
-		prerequisite = { focus = uk_malta_focus }
-		icon = GFX_goal_generic_improve_relations
-		available = {
-			has_government = democratic
-		}
-		bypass = {
-			NOT = {
-				country_exists = YUG
-				country_exists = GRE
-				country_exists = ROM
-				country_exists = BUL
-				country_exists = HUN
-			}
-		}
-		x = 1
-		y = 1
-		relative_position_id = uk_protect_suez
-		cost = 10
-		ai_will_do = {
-			factor = 1
-		}
-		completion_reward = {
-			every_country = {
-				limit = {
-					OR = {
-						tag = YUG
-						tag = GRE
-						tag = ROM
-					}
-					NOT = {
-						OR = {
-							AND = {
-								is_in_faction_with = GER
-								GER = { has_government = fascism }
-							}
-							AND = {
-								is_in_faction_with = ITA
-								ITA = { has_government = fascism }
-							}
-						}
-					}
-				}
-				country_event = { id = generic.19 }
-				add_offsite_building = { type = arms_factory level = 2 }
-			}
-			YUG = { add_opinion_modifier = { target = ENG modifier = balkan_strategy_good } }
-			GRE = { add_opinion_modifier = { target = ENG modifier = balkan_strategy_good } }
-			ROM = { add_opinion_modifier = { target = ENG modifier = balkan_strategy_good } }
-			BUL = { add_opinion_modifier = { target = ENG modifier = balkan_strategy_bad } }
-			HUN = { add_opinion_modifier = { target = ENG modifier = balkan_strategy_bad } }
-			hidden_effect = {
-				news_event = {
-					hours = 6 id = news.228
-				}
-			}
-			if = {
-				limit = {
-					has_dlc = "Death or Dishonor"
-				}
-				country_event = {
-					id = DOD_yugoslavia.40
-					days = 5
-				}
-			}
-		}
-	}
-
-	focus = {
-		id = uk_sanction_italy_focus
-		available = {
-			ITA = {
-				ENG_focus_available_embargo_sanction = yes
-			}	
-		}
-		bypass = {
-			has_war_with = ITA
-		}
-		prerequisite = { focus = uk_balkan_strategy }
-		icon = GFX_goal_generic_trade
-		x = 0
-		y = 1
-		relative_position_id = uk_balkan_strategy
-		cost = 10
-		ai_will_do = {
-			factor = 1
-		}
-
-		available_if_capitulated = yes
-
-		completion_reward = {
-			ITA = {
-				add_opinion_modifier = { target = ENG modifier = embargo }
-				add_opinion_modifier = { target = ENG modifier = sanctions_relations } 
-			}
-		}
-	}
-	focus = {
-		id = ENG_war_with_italy
-		available = {
-			has_offensive_war = no
-			ITA = {
-				ENG_focus_available_war = yes
-			}	
-		}
-		bypass = {
-			has_war_with = ITA
-		}
-		will_lead_to_war_with = ITA
-		prerequisite = { focus = uk_sanction_italy_focus }
-		icon = GFX_focus_attack_italy
-		x = 0
-		y = 1
-		relative_position_id = uk_sanction_italy_focus
-		cost = 10
-		ai_will_do = {
-			factor = 1
-		}	
-		completion_reward = {
-			create_wargoal = {
-				type = puppet_wargoal_focus
-				target = ITA
-				expire = 0
-			} 
-		}
-	}	
-
-	focus = {
-		id = uk_turkey_focus
-		prerequisite = { focus = uk_protect_suez }
-		mutually_exclusive = { focus = uk_greece_focus }
-		available = {
-			TUR = {
-				exists = yes
-				has_war = no
-				NOT = { is_in_faction_with = ENG }
-				is_subject = no
-			}
-			NOT = { has_government = communism }
-		} #TUR not in a faction
-		#prerequisite = { focus = uk_battleship_focus }
-		icon = GFX_goal_generic_political_pressure
-		x = -3
-		y = 1
-		relative_position_id = uk_protect_suez
-		cost = 10
-		ai_will_do = {
-			factor = 1
-		}	
-		completion_reward = {
-			# + relations with TUR - they become more democratic and like fascist/commies less
-			if = {
-				limit = { has_government = democratic }
-				TUR = {
-					add_opinion_modifier = { target = ENG modifier = democratic_leanings_good }
-					add_ideas = democratic_influence
-					country_event = { id = generic.1 }
-				}
-				every_other_country = {
-					limit = { 
-						NOT = { has_government = democratic }
-						num_of_factories > 30
-					}
-					add_opinion_modifier = { target = TUR modifier = democratic_leanings_bad }
-				}
-			}
-			if = {
-				limit = { has_government = fascism }
-				TUR = {
-					add_opinion_modifier = { target = ENG modifier = fascism_leanings_good }
-					add_ideas = fascist_influence
-					country_event = { id = generic.1 }
-				}
-				every_other_country = {
-					limit = { 
-						NOT = { has_government = fascism }
-						num_of_factories > 30
-					}
-					add_opinion_modifier = { target = TUR modifier = fascism_leanings_bad }
-				}
-			}
-			if = {
-				limit = { has_government = neutrality }
-				TUR = {
-					add_opinion_modifier = { target = ENG modifier = neutrality_leanings_good }
-					add_ideas = neutrality_influence
-					country_event = { id = generic.1 }
-				}
-				every_other_country = {
-					limit = { 
-						NOT = { has_government = neutrality }
-						num_of_factories > 30
-					}
-					add_opinion_modifier = { target = TUR modifier = neutrality_leanings_bad }
-				}
-			}
-			hidden_effect = {
-				news_event = { hours = 6 id = news.225 }
-			}
-		}
-	}
-	focus = {
-		id = uk_greece_focus 
-		prerequisite = { focus = uk_protect_suez } 
-		mutually_exclusive = { focus = uk_turkey_focus }
-		available = {
-			GRE = {
-				exists = yes
-				has_war = no
-				NOT = { is_in_faction_with = ENG }
-			}
-			NOT = { has_government = communism }
-		} 
-		icon = GFX_goal_generic_political_pressure
-		x = -1
-		y = 1
-		relative_position_id = uk_protect_suez
-		cost = 10
-		completion_reward = {
-			if = {
-				limit = { has_government = democratic }
-				GRE = {
-					add_opinion_modifier = { target = ENG modifier = democratic_leanings_good }
-					add_ideas = democratic_influence
-					country_event = { id = generic.1 }
-				}
-				every_other_country = {
-					limit = { 
-						NOT = { has_government = democratic }
-						num_of_factories > 30
-					}
-					add_opinion_modifier = { target = GRE modifier = democratic_leanings_bad }
-				}
-			}
-			if = {
-				limit = { has_government = fascism }
-				GRE = {
-					add_opinion_modifier = { target = ENG modifier = fascism_leanings_good }
-					add_ideas = fascist_influence
-					country_event = { id = generic.1 }
-				}
-				every_other_country = {
-					limit = { 
-						NOT = { has_government = fascism }
-						num_of_factories > 30
-					}
-					add_opinion_modifier = { target = GRE modifier = fascism_leanings_bad }
-				}
-			}
-			if = {
-				limit = { has_government = neutrality }
-				GRE = {
-					add_opinion_modifier = { target = ENG modifier = neutrality_leanings_good }
-					add_ideas = neutrality_influence
-					country_event = { id = generic.1 }
-				}
-				every_other_country = {
-					limit = { 
-						NOT = { has_government = neutrality }
-						num_of_factories > 30
-					}
-					add_opinion_modifier = { target = GRE modifier = neutrality_leanings_bad }
-				}
-			}
-			hidden_effect = {
-				news_event = { hours = 6 id = news.226 }
-			}
-		}
-	}
+	
 	focus = {
 		id = uk_malta_focus 
 		prerequisite = { focus = uk_mediterranean_focus }
@@ -2356,10 +1897,10 @@ focus_tree = {
 			116 = { is_owned_and_controlled_by = ENG }
 		}		
 		icon = GFX_goal_generic_construct_military
-		x = 2
-		y = 2
+		x = 1
+		y = 1
 		relative_position_id = uk_mediterranean_focus
-		cost = 10
+		cost = 5
 
 		available_if_capitulated = yes
 
@@ -2382,18 +1923,18 @@ focus_tree = {
 				add_extra_state_shared_building_slots = 1
 				add_building_construction = {
 					type = coastal_bunker
-					level = 2
+					level = 4
 					province = 12003
 					instant_build = yes
 				}
 				add_building_construction = {
 					type = air_base
-					level = 3
+					level = 5
 					instant_build = yes
 				}
 				add_building_construction = {
 					type = anti_air_building
-					level = 2
+					level = 4
 					instant_build = yes
 				}
 			}
@@ -2405,10 +1946,10 @@ focus_tree = {
 		id = uk_colonial_focus 
 		prerequisite = { focus = uk_service_focus }
 		icon = GFX_focus_research2
-		x = -5
+		x = 0
 		y = 1
 		relative_position_id = uk_service_focus
-		cost = 10
+		cost = 5
 
 		available_if_capitulated = yes
 
@@ -2416,126 +1957,9 @@ focus_tree = {
 			add_ideas = { ENG_colonial_elite }
 		}
 	}
-
-	focus = {
-		id = uk_asia_focus 
-		prerequisite = { focus = uk_colonial_focus }
-		
-		available = {
-			336 = {
-				CONTROLLER = {
-					OR = {
-						tag = ENG
-						is_subject_of = ENG
-					}
-				}
-			}
-			326 = {
-				CONTROLLER = {
-					OR = {
-						tag = ENG
-						is_subject_of = ENG
-					}
-				}
-			}
-		}
-
-		icon = GFX_goal_generic_construct_civilian
-		x = -4
-		y = 1
-		relative_position_id = uk_colonial_focus
-		cost = 10
-
-		available_if_capitulated = yes
-
-		bypass = {
-			336 = {
-				free_building_slots = {
-					building = dockyard
-					size < 1
-					include_locked = yes
-				}				
-			}
-			326 = {
-				free_building_slots = {
-					building = industrial_complex
-					size < 1
-					include_locked = yes
-				}
-			}
-		}
-
-		completion_reward = {
-			if = {
-				limit = {
-					has_idea = ENG_fortify_the_empire_1
-				}
-				swap_ideas = {
-					remove_idea = ENG_fortify_the_empire_1
-					add_idea = ENG_fortify_the_empire_2
-				}
-			}
-			if = {
-				limit = {
-					NOT = { has_idea = ENG_fortify_the_empire_1 }
-					NOT = { has_idea = ENG_fortify_the_empire_2 }
-				}
-				add_ideas = ENG_fortify_the_empire_1
-			}
-			336 = {
-				if = {
-					limit = {
-						CONTROLLER = {
-							OR = {
-								tag = ENG
-								is_subject_of = ENG
-							}
-						}
-						OWNER = {
-							OR = {
-								tag = ENG
-								is_subject_of = ENG
-							}
-						}
-					} 
-					add_extra_state_shared_building_slots = 1
-					add_building_construction = {
-							type = dockyard
-							level = 1
-							instant_build = yes
-					}
-				}
-			}
-			326 = {
-				if = {
-					limit = {
-						CONTROLLER = {
-							OR = {
-								tag = ENG
-								is_subject_of = ENG
-							}
-						}
-						OWNER = {
-							OR = {
-								tag = ENG
-								is_subject_of = ENG
-							}
-						}
-					}
-					add_extra_state_shared_building_slots = 1
-					add_building_construction = {
-							type = industrial_complex
-							level = 1
-							instant_build = yes
-					}
-				}
-			}
-		}
-	}
-
 	focus = {
 		id = uk_burma_focus
-		prerequisite = { focus = uk_asia_focus } 
+		prerequisite = { focus = uk_colonial_focus } 
 		available = {
 			CHI = { 
 				has_war_with = JAP 
@@ -2551,7 +1975,7 @@ focus_tree = {
 		icon = GFX_goal_generic_construct_infrastructure
 		x = -2
 		y = 1
-		relative_position_id = uk_asia_focus
+		relative_position_id = uk_colonial_focus
 		cost = 10
 		ai_will_do = {
 			factor = 1
@@ -2684,430 +2108,6 @@ focus_tree = {
 			} 
 		}
 	}
-	focus = {
-		id = uk_sanction_japan_focus
-		available = {
-			JAP = { 
-				ENG_focus_available_embargo_sanction = yes
-			}	
-			has_government = democratic
-		}
-		bypass = {
-			has_war_with = JAP
-		}
-		prerequisite = { focus = uk_burma_focus }
-		icon = GFX_goal_generic_trade
-		x = 0
-		y = 2
-		relative_position_id = uk_burma_focus
-		cost = 10
-		ai_will_do = {
-			factor = 1
-		}
-
-		available_if_capitulated = yes
-
-		completion_reward = {
-			JAP = {
-				add_opinion_modifier = { target = ENG modifier = embargo }
-				add_opinion_modifier = { target = ENG modifier = sanctions_relations } 
-			}
-		}
-	}
-	focus = {
-		id = ENG_war_with_japan
-		available = {
-			has_offensive_war = no
-			JAP = {
-				ENG_focus_available_war = yes
-			}	
-			has_government = democratic
-		}
-		bypass = {
-			has_war_with = JAP
-		}
-		will_lead_to_war_with = JAP
-		prerequisite = { focus = uk_sanction_japan_focus }
-		prerequisite = { focus = peninsular_focus }
-		prerequisite = { focus = hk_air_focus }
-		icon = GFX_focus_attack_japan
-		x = 2
-		y = 1
-		relative_position_id = uk_sanction_japan_focus
-		cost = 10
-		ai_will_do = {
-			factor = 1
-		}	
-		completion_reward = {
-			create_wargoal = {
-				type = puppet_wargoal_focus
-				target = JAP
-				expire = 0
-			} 
-		}
-	}
-
-
-	focus = {
-		id = singapore_focus
-		prerequisite = { focus = uk_asia_focus }
-		icon = GFX_goal_generic_fortify_city
-		x = 0
-		y = 1
-		relative_position_id = uk_asia_focus
-		cost = 10
-
-		available = {
-			336 = {
-				CONTROLLER = {
-					OR = {
-						tag = ENG
-						is_subject_of = ENG
-					}
-				}
-			}
-		}
-
-		ai_will_do = {
-			factor = 1
-		}
-
-		available_if_capitulated = yes
-
-		completion_reward = { 
-			navy_experience = 25
-			336 = {
-				add_extra_state_shared_building_slots = 1
-				add_building_construction = {
-					type = coastal_bunker
-					level = 3
-					province = 12299
-					instant_build = yes
-				}
-				if = {
-					limit = {
-						CONTROLLER = {
-							NOT = { tag = ENG }
-						}
-					}
-					CONTROLLER = {
-						add_autonomy_ratio = {
-							value = -0.02
-							localization = singapore_focus
-						}
-					}
-				}
-			}
-		}
-	}
-	focus = {
-		id = sp_landward_forts_focus
-		prerequisite = { focus = singapore_focus }
-		icon = GFX_goal_generic_construct_military
-		x = 0
-		y = 1
-		relative_position_id = singapore_focus
-		cost = 10
-		ai_will_do = {
-			factor = 1
-		}	
-		available = {
-			336 = {
-				CONTROLLER = {
-					OR = {
-						tag = ENG
-						is_subject_of = ENG
-					}
-				}
-			}
-		}
-
-
-		available_if_capitulated = yes
-
-		bypass = {
-			336 = {
-				free_building_slots = {
-					building = anti_air_building
-					size < 2
-				}
-			}
-		}
-
-		completion_reward = {
-			336 = {
-				add_extra_state_shared_building_slots = 1
-				add_building_construction = {
-					type = bunker
-					level = 4
-					province = 12299
-					instant_build = yes
-				}
-				add_building_construction = {
-					type = anti_air_building
-					level = 2
-					instant_build = yes
-				}
-				if = {
-					limit = {
-						CONTROLLER = {
-							NOT = { tag = ENG }
-						}
-					}
-					CONTROLLER = {
-						add_autonomy_ratio = {
-							value = -0.02
-							localization = sp_landward_forts_focus
-						}
-					}
-				}
-			}
-		}
-	}
-	focus = {
-		id = peninsular_focus
-		prerequisite = { focus = sp_landward_forts_focus }
-		icon = GFX_goal_generic_construction2
-		x = 0
-		y = 1
-		relative_position_id = sp_landward_forts_focus
-		cost = 10
-		ai_will_do = {
-			factor = 1
-		}	
-		available = {
-			336 = {
-				CONTROLLER = {
-					OR = {
-						tag = ENG
-						is_subject_of = ENG
-					}
-				}
-			}
-		}
-
-		available_if_capitulated = yes
-
-		completion_reward = {
-			336 = {
-				add_building_construction = {
-					type = bunker
-					level = 3
-					province = 7329
-					instant_build = yes
-				}
-				add_building_construction = {
-					type = bunker
-					level = 3
-					province = 4310
-					instant_build = yes
-				}
-				add_building_construction = {
-					type = bunker
-					level = 3
-					province = 7342
-					instant_build = yes
-				}
-				add_building_construction = {
-					type = air_base
-					level = 2
-					instant_build = yes
-				}
-				if = {
-					limit = {
-						CONTROLLER = {
-							NOT = { tag = ENG }
-						}
-					}
-					CONTROLLER = {
-						add_autonomy_ratio = {
-							value = -0.02
-							localization = peninsular_focus
-						}
-					}
-				}
-			}
-		}
-	}
-	focus = {
-		id = hongkong_focus
-		prerequisite = { focus = uk_asia_focus }
-		icon = GFX_goal_generic_fortify_city
-		x = 2
-		y = 1
-		relative_position_id = uk_asia_focus
-		cost = 10
-		ai_will_do = {
-			factor = 0.25
-		}
-		available = { 
-			326 = {
-				CONTROLLER = {
-					OR = {
-						tag = ENG
-						is_subject_of = ENG
-					}
-				}
-			}
-		}
-
-		available_if_capitulated = yes
-
-		completion_reward = {
-			navy_experience = 25
-			326 = {
-				add_extra_state_shared_building_slots = 1
-				add_building_construction = {
-					type = coastal_bunker
-					level = 3
-					province = 10062
-					instant_build = yes
-				}
-			}
-		}
-	}
-	focus = {
-		id = hk_landward_forts_focus
-		prerequisite = { focus = hongkong_focus }
-		icon = GFX_goal_generic_construct_military
-		x = 0
-		y = 1
-		relative_position_id = hongkong_focus
-		cost = 10
-		ai_will_do = {
-			factor = 1
-		}	
-		available = {
-			326 = {
-				CONTROLLER = {
-					OR = {
-						tag = ENG
-						is_subject_of = ENG
-					}
-				}
-			}
-		}
-
-		available_if_capitulated = yes
-
-		bypass = {
-			326 = { 
-				free_building_slots = {
-					building = anti_air_building
-					size < 2
-				}
-			}
-		}
-
-		completion_reward = { 
-			326 = {
-				add_extra_state_shared_building_slots = 1
-				add_building_construction = {
-					type = bunker
-					level = 4
-					province = 10062
-					instant_build = yes
-				}
-				add_building_construction = {
-					type = anti_air_building
-					level = 2				
-					instant_build = yes
-				}
-			}
-		}
-	}
-	focus = {
-		id = hk_air_focus
-		prerequisite = { focus = hk_landward_forts_focus }
-		icon = GFX_goal_generic_construct_civilian
-		x = 0
-		y = 1
-		relative_position_id = hk_landward_forts_focus
-		cost = 10
-		ai_will_do = {
-			factor = 1
-		}	
-		available = {
-			326 = {
-				CONTROLLER = {
-					OR = {
-						tag = ENG
-						is_subject_of = ENG
-					}
-				}
-			}
-		}
-
-		available_if_capitulated = yes
-
-		bypass = {
-			326 = { 
-				free_building_slots = {
-					building = anti_air_building
-					size < 2
-				} 
-				free_building_slots = {
-					building = air_base
-					size < 2
-				}
-			}
-		}
-		completion_reward = {
-			326 = {
-				add_building_construction = {
-					type = anti_air_building
-					level = 2
-					instant_build = yes
-				}
-			
-				add_building_construction = {
-					type = air_base
-					level = 4
-					instant_build = yes
-				}
-			}
-		}
-	}
-	
-	focus = {
-		id = uk_china_focus 
-		prerequisite = { focus = hk_air_focus  }
-		available = {
-			CHI = { exists = yes }
-			has_government = democratic
-		} 
-		cancel = {
-			CHI = { exists = no }
-		}
-		icon = GFX_goal_generic_improve_relations
-		x = 0
-		y = 1
-		relative_position_id = hk_air_focus
-		cost = 10
-		ai_will_do = {
-			factor = 1
-			modifier = {
-				factor = 0
-				is_historical_focus_on = yes
-			}
-		}
-		completion_reward = {
-			event_target:WTT_current_china_leader = {
-				add_offsite_building = { type = arms_factory level = 2 }
-				add_opinion_modifier = { target = ENG modifier = democratic_leanings_good }
-				add_timed_idea = { idea = democratic_influence days = 1095 }
-				country_event = { id = generic.1 }
-				set_country_flag = ENG_influenced_by_britain_flag
-			}
-			every_other_country = {
-				limit = { 
-					NOT = { has_government = democratic }
-					num_of_factories > 30
-				}
-				add_opinion_modifier = { target = CHI modifier = democratic_leanings_bad }
-			}
-		}
-	}
 	
 	focus = {
 		id = uk_commonwealth_focus 
@@ -3122,7 +2122,7 @@ focus_tree = {
 			}
 		}
 		icon = GFX_goal_tfv_strengthen_commonwealth_ties
-		x = 4
+		x = 0
 		y = 1
 		relative_position_id = uk_colonial_focus
 		cost = 5
@@ -3170,7 +2170,7 @@ focus_tree = {
 		x = -1
 		y = 1
 		relative_position_id = uk_commonwealth_focus
-		cost = 10
+		cost = 5
 		ai_will_do = {
 			factor = 3
 		}
@@ -4285,16 +3285,9 @@ focus_tree = {
 
 		icon = GFX_goal_support_democracy
 
-		x = 5
+		x = 24
 		y = 0
-		offset = {
-			x = -7
-			y = 0
-			trigger = {
-				NOT = { has_dlc = "Man the Guns" }
-			}
-		}
-		relative_position_id = ENG_revisit_colonial_policy
+		
 		cost = 5
 		ai_will_do = {
 			factor = 1

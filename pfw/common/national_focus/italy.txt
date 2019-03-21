@@ -17,9 +17,9 @@ focus_tree = {
 	focus = {
 		id = ITA_ethiopian_war_logistics
 		icon = GFX_goal_generic_position_armies
-		x = 0
+		x = 2
 		y = 0
-		cost = 10
+		cost = 5
 		ai_will_do = {
 			factor = 10
 		}
@@ -104,10 +104,8 @@ focus_tree = {
 		id = ITA_industrial_effort
 		icon = GFX_goal_generic_construct_civ_factory
 		text = industrial_effort
-		prerequisite = { focus = ITA_ethiopian_war_logistics }
 		x = 0
-		y = 1
-		relative_position_id = ITA_ethiopian_war_logistics
+		y = 0
 		cost = 10
 		ai_will_do = {
 			factor = 1
@@ -376,10 +374,10 @@ focus_tree = {
 	focus = {
 		id = ITA_fortification_effort
 		icon = GFX_goal_generic_construct_military
-		prerequisite = { focus = ITA_industrial_effort_2 }
+		prerequisite = { focus = ITA_italian_highways }
 		x = 0
-		y = 2
-		relative_position_id = ITA_industrial_effort_2
+		y = 1
+		relative_position_id = ITA_italian_highways
 		cost = 10
 		ai_will_do = {
 			factor = 1
@@ -456,7 +454,7 @@ focus_tree = {
 		icon = GFX_focus_research
 		text = extra_tech_slot
 		prerequisite = { focus = ITA_industrial_effort_2 }
-		x = 1
+		x = 0
 		y = 1
 		relative_position_id = ITA_industrial_effort_2
 		cost = 10
@@ -477,7 +475,7 @@ focus_tree = {
 		text = ITA_italian_highways
 		prerequisite = { focus = ITA_extra_tech_slot }
 		x = 0
-		y = 2
+		y = 1
 		relative_position_id = ITA_extra_tech_slot
 		cost = 10
 		ai_will_do = {
@@ -583,7 +581,7 @@ focus_tree = {
 		id = ITA_prospect_for_oil
 		icon = GFX_goal_generic_production
 		text = ITA_prospect_for_oil
-		prerequisite = { focus = ITA_italian_highways }
+		prerequisite = { focus = ITA_ethiopian_war_logistics }
 		available = {
 			ITA = {
 				controls_state = 662
@@ -597,7 +595,7 @@ focus_tree = {
 		
 		x = 0
 		y = 1
-		relative_position_id = ITA_italian_highways
+		relative_position_id = ITA_ethiopian_war_logistics
 		cost = 10
 
 		available_if_capitulated = yes
@@ -608,7 +606,7 @@ focus_tree = {
 		completion_reward = {
 			add_resource = {
 				type = oil
-				amount = 40
+				amount = 30
 				state = 662
 			}
 			662 = {
@@ -618,57 +616,11 @@ focus_tree = {
 	}
 	
 	focus = {
-		id = ITA_libyan_refineries
-		icon = GFX_goal_generic_oil_refinery
-		text = ITA_libyan_refineries
-		prerequisite = { focus = ITA_prospect_for_oil }
-		available = {
-			ITA = {
-				controls_state = 450
-			}
-			450 = {
-				NOT = {
-					has_state_flag = benghazi_oil_developed
-				}
-			}
-		}
-		x = -1
-		y = 1
-		relative_position_id = ITA_prospect_for_oil
-		cost = 10
-
-		available_if_capitulated = yes
-
-		ai_will_do = {
-			factor = 1
-		}	
-		completion_reward = {
-			add_resource = {
-				type = oil
-				amount = 20
-				state = 450
-			}
-			450 = {
-				set_state_flag = benghazi_oil_developed
-				add_extra_state_shared_building_slots = 2
-				add_building_construction = {
-					type = synthetic_refinery
-					level = 2
-					instant_build = yes
-				}
-			}	
-		
-		}
-	}	
-	
-	
-	
-	focus = {
 		id = ITA_libyan_infrastructure
 		icon = GFX_goal_generic_construct_civilian
 		text = ITA_libyan_infrastructure
 		prerequisite = { focus = ITA_prospect_for_oil }
-		x = 1
+		x = 0
 		y = 1
 		relative_position_id = ITA_prospect_for_oil
 		cost = 10
@@ -733,12 +685,54 @@ focus_tree = {
 		}
 	}		
 
+		focus = {
+		id = ITA_libyan_refineries
+		icon = GFX_goal_generic_oil_refinery
+		text = ITA_libyan_refineries
+		prerequisite = { focus = ITA_libyan_infrastructure }
+		available = {
+			ITA = {
+				controls_state = 450
+			}
+			450 = {
+				NOT = {
+					has_state_flag = benghazi_oil_developed
+				}
+			}
+		}
+		x = 0
+		y = 1
+		relative_position_id = ITA_libyan_infrastructure
+		cost = 10
+
+		available_if_capitulated = yes
+
+		ai_will_do = {
+			factor = 1
+		}	
+		completion_reward = {
+			add_resource = {
+				type = oil
+				amount = 20
+				state = 450
+			}
+			450 = {
+				set_state_flag = benghazi_oil_developed
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = {
+					type = synthetic_refinery
+					level = 2
+					instant_build = yes
+				}
+			}	
 		
+		}
+	}	
 
 	focus = {
 		id = ITA_army_primacy
 		icon = GFX_goal_generic_axis_build_infantry
-		x = 4
+		x = 5
 		y = 0
 		cost = 10
 		ai_will_do = {
@@ -840,7 +834,7 @@ focus_tree = {
 		id = ITA_modernized_artillery
 		icon = GFX_goal_generic_army_artillery2
 		prerequisite = { focus = ITA_army_primacy }
-		x = -1
+		x = 1
 		y = 1
 		relative_position_id = ITA_army_primacy
 		cost = 10
@@ -863,11 +857,10 @@ focus_tree = {
 	focus = {
 		id = ITA_modernized_army
 		icon = GFX_goal_generic_small_arms
-		prerequisite = { focus = ITA_modernized_artillery }
-		prerequisite = { focus = ITA_industrial_effort }
-		x = 0
+		prerequisite = { focus = ITA_army_primacy }
+		x = -1
 		y = 1
-		relative_position_id = ITA_modernized_artillery
+		relative_position_id = ITA_army_primacy
 		cost = 10
 		ai_will_do = {
 			factor = 1
@@ -900,7 +893,7 @@ focus_tree = {
 		text = special_forces
 		prerequisite = { focus = ITA_modernized_army }
 		x = 0
-		y = 2
+		y = 1
 		relative_position_id = ITA_modernized_army
 		cost = 10
 		ai_will_do = {
@@ -924,16 +917,22 @@ focus_tree = {
 				uses = 1
 				technology = tech_mountaineers2
 			}
+			add_tech_bonus = {
+				name = infantry_artillery_bonus
+				bonus = 1.0
+				uses = 1
+				category = infantry_weapons
+			}
 		}
 	}
 
 	focus = {
 		id = ITA_armored_effort
 		icon = GFX_goal_generic_army_tanks
-		prerequisite = { focus = ITA_special_forces }
+		prerequisite = { focus = ITA_modernized_artillery }
 		x = 0
 		y = 1
-		relative_position_id = ITA_special_forces
+		relative_position_id = ITA_modernized_artillery
 		cost = 10
 		ai_will_do = {
 			factor = 1
@@ -955,7 +954,7 @@ focus_tree = {
 	focus = {
 		id = ITA_mare_nostrum
 		icon = GFX_goal_generic_build_navy
-		x = 6
+		x = 9
 		y = 0
 		cost = 10
 		ai_will_do = {
@@ -1057,13 +1056,17 @@ focus_tree = {
 		id = ITA_air_innovation
 		icon = GFX_goal_generic_build_airforce
 		text = air_innovation
-		prerequisite = { focus = ITA_army_primacy focus = ITA_mare_nostrum }
-		x = 1
-		y = 1
+		x = 2
+		y = 3
 		relative_position_id = ITA_army_primacy
 		cost = 10
 		ai_will_do = {
 			factor = 1
+		}
+		prerequisite = { 
+				focus = ITA_mare_nostrum
+				FOCUS = ITA_army_primacy
+				 
 		}
 
 		available_if_capitulated = yes
@@ -1089,7 +1092,7 @@ focus_tree = {
 		id = ITA_carrier_effort
 		icon = GFX_goal_generic_navy_carrier
 		prerequisite = { focus = ITA_mare_nostrum }
-		x = 1
+		x = -1
 		y = 1
 		relative_position_id = ITA_mare_nostrum
 		cost = 10
@@ -1113,7 +1116,7 @@ focus_tree = {
 		id = ITA_capital_ships
 		icon = GFX_goal_generic_navy_battleship
 		prerequisite = { focus = ITA_mare_nostrum }
-		x = 3
+		x = 1
 		y = 1
 		relative_position_id = ITA_mare_nostrum
 		cost = 10
@@ -1145,11 +1148,10 @@ focus_tree = {
 	focus = {
 		id = ITA_bomber_effort
 		icon = GFX_goal_generic_air_bomber
-		prerequisite = { focus = ITA_army_primacy }
 		prerequisite = { focus = ITA_air_innovation }
-		x = 0
-		y = 3
-		relative_position_id = ITA_army_primacy
+		x = -1
+		y = 1
+		relative_position_id = ITA_air_innovation
 		cost = 10
 		ai_will_do = {
 			factor = 1
@@ -1181,9 +1183,8 @@ focus_tree = {
 		icon = GFX_goal_generic_air_naval_bomber
 		text = naval_air_effort
 		prerequisite = { focus = ITA_air_innovation }
-		prerequisite = { focus = ITA_carrier_effort }
 		x = 1
-		y = 2
+		y = 1
 		relative_position_id = ITA_air_innovation
 		cost = 10
 		ai_will_do = {
@@ -1212,7 +1213,7 @@ focus_tree = {
 		prerequisite = { focus = ITA_carrier_effort }
 		prerequisite = { focus = ITA_capital_ships }
 		x = 1
-		y = 2
+		y = 1
 		relative_position_id = ITA_carrier_effort
 		cost = 10
 		ai_will_do = {
@@ -1275,10 +1276,13 @@ focus_tree = {
 		id = ITA_air_innovation_2
 		icon = GFX_goal_generic_build_airforce
 		text = air_innovation_2
-		prerequisite = { focus = ITA_bomber_effort focus = ITA_naval_air_effort }
-		x = 1
+		prerequisite = { 
+				focus = ITA_naval_air_effort 
+				focus = ITA_bomber_effort
+		}
+		x = -1
 		y = 1
-		relative_position_id = ITA_bomber_effort
+		relative_position_id = ITA_naval_air_effort
 		cost = 10
 		ai_will_do = {
 			factor = 1
@@ -1331,8 +1335,10 @@ focus_tree = {
 	focus = {
 		id = ITA_light_ship_effort
 		icon = GFX_goal_generic_navy_cruiser
-		x = 11
-		y = 0
+		prerequisite = { focus = ITA_mare_nostrum }
+		x = 3
+		y = 1
+		relative_position_id = ITA_mare_nostrum
 		cost = 10
 		ai_will_do = {
 			factor = 1
@@ -1362,7 +1368,7 @@ focus_tree = {
 		id = ITA_escort_effort
 		icon = GFX_goal_generic_navy_anti_submarine
 		prerequisite = { focus = ITA_light_ship_effort }
-		x = 1
+		x = -1
 		y = 1
 		relative_position_id = ITA_light_ship_effort
 		cost = 10
@@ -1395,8 +1401,8 @@ focus_tree = {
 		icon = GFX_goal_generic_navy_submarine
 		text = submarine_effort
 		prerequisite = { focus = ITA_light_ship_effort }
-		x = -1
-		y = 2
+		x = 1
+		y = 1
 		relative_position_id = ITA_light_ship_effort
 		cost = 10
 		ai_will_do = {
@@ -1432,8 +1438,8 @@ focus_tree = {
 		available = {
 			NOT = { has_country_flag = ENG_ditched_by_the_germans_flag }
 		}
-		x = 4
-		y = 3
+		x = 0
+		y = 2
 		relative_position_id = ITA_submarine_effort
 		cost = 10
 		ai_will_do = {
@@ -1471,7 +1477,7 @@ focus_tree = {
 
 		available_if_capitulated = yes
 
-		x = 17
+		x = 16
 		y = 0
 		cost = 5
 		ai_will_do = {
@@ -1488,7 +1494,7 @@ focus_tree = {
 		icon = GFX_goal_generic_demand_territory
 		prerequisite = { focus = ITA_pact_of_steel }
 		#mutually_exclusive = { focus = ITA_yugoslavia_friend }
-		x = 1
+		x = -2
 		y = 1
 		relative_position_id = ITA_pact_of_steel
 		cost = 5
@@ -1554,54 +1560,15 @@ focus_tree = {
 		}
 	}
 
-	focus = {
-		id = ITA_bulgaria_friend
-		icon = GFX_goal_generic_improve_relations
-		prerequisite = { focus = ITA_pact_of_steel }
-		x = -1
-		y = 1
-		relative_position_id = ITA_pact_of_steel
-		cost = 5
-		ai_will_do = {
-			factor = 1
-		}
-		available = {
-			country_exists = BUL
-			NOT = {
-				has_war_with = BUL
-			}
-		}
-		bypass = {
-			NOT = { country_exists = BUL }
-		}
-		completion_reward = {
-			BUL = {
-				add_opinion_modifier = { target = ITA modifier = ita_diplomacy_focus }
-				if = {
-					limit = { ROOT = { has_government = fascism } }
-					add_ideas = fascist_influence
-				}
-				if = {
-					limit = { ROOT = { has_government = democratic } }
-					add_ideas = democratic_influence
-				}
-				if = {
-					limit = { ROOT = { has_government = communism } }
-					add_ideas = communist_influence
-				}
-				country_event = { id = generic.1 }
-			}
-		}
-	}
 
 	focus = {
 		id = ITA_albania_war_goal
 		icon = GFX_goal_generic_more_territorial_claims
-		prerequisite = { focus = ITA_pact_of_steel }
+		prerequisite = { focus = ITA_victoryinETH }
 		will_lead_to_war_with = ALB
-		x = 3
+		x = 0
 		y = 1
-		relative_position_id = ITA_pact_of_steel
+		relative_position_id = ITA_victoryinETH
 		
 		available = {
 			country_exists = ALB
@@ -1623,7 +1590,7 @@ focus_tree = {
 	focus = {
 		id = ITA_pact_of_steel
 		icon = GFX_goal_generic_major_alliance
-		prerequisite = { focus = ITA_victoryinETH }
+		prerequisite = { focus = ITA_albania_war_goal }
 		##mutually_exclusive = { focus = ITA_italy_first }
 		available = {
 			has_government = fascism
@@ -1648,7 +1615,7 @@ focus_tree = {
 		}
 		x = 0
 		y = 1
-		relative_position_id = ITA_victoryinETH
+		relative_position_id = ITA_albania_war_goal
 		cost = 5
 		ai_will_do = {
 			factor = 10
@@ -1697,7 +1664,7 @@ focus_tree = {
 		}
 		
 		x = 0
-		y = 2
+		y = 1
 		relative_position_id = ITA_pact_of_steel
 		cost = 10
 		ai_will_do = {
@@ -1710,53 +1677,6 @@ focus_tree = {
 
 	
 
-
-	focus = {
-		id = ITA_romania_friend
-		icon = GFX_goal_generic_improve_relations
-		prerequisite = { focus = ITA_pact_of_steel }
-		x = -3
-		y = 1
-		relative_position_id = ITA_pact_of_steel
-		cost = 5
-		ai_will_do = {
-			factor = 1
-		}
-		available = {
-			country_exists = ROM
-			NOT = {
-				has_war_with = ROM
-			}
-			has_government = fascism
-		}
-		bypass = {
-			ROM = {
-				OR = {
-					NOT = { country_exists = ROM }
-					has_capitulated = yes
-				}
-			}
-		}
-		completion_reward = {
-			ROM = {
-				add_opinion_modifier = { target = ITA modifier = ita_diplomacy_focus }
-				if = {
-					limit = { ROOT = { has_government = fascism } }
-					add_ideas = fascist_influence
-				}
-				if = {
-					limit = { ROOT = { has_government = democratic } }
-					add_ideas = democratic_influence
-				}
-				if = {
-					limit = { ROOT = { has_government = communism } }
-					add_ideas = communist_influence
-				}
-				country_event = { id = generic.1 }
-			}
-		}
-	}
-
 	focus = {
 		id = ITA_german_rd_treaty
 		icon = GFX_goal_generic_scientific_exchange
@@ -1766,8 +1686,8 @@ focus_tree = {
 		}
 		cancel = { has_war_with = GER }
 		x = 0
-		y = 3
-		relative_position_id = ITA_pact_of_steel
+		y = 1
+		relative_position_id = ITA_german_millitary_cooperation
 		cost = 10
 		ai_will_do = {
 			factor = 1
@@ -1861,7 +1781,7 @@ focus_tree = {
 			country_exists = GRE
 		}
 		will_lead_to_war_with = GRE
-		x = 5
+		x = 2
 		y = 1
 		relative_position_id = ITA_pact_of_steel
 		cost = 5

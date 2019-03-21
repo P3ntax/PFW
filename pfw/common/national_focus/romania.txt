@@ -355,6 +355,16 @@ focus_tree = {
 				uses = 2
 				category = industry
 			}
+			add_tech_bonus = {
+				name = ROM_civil_works
+				bonus = 1.0
+				uses = 2
+				technology = excavation1
+				technology = excavation2
+				technology = excavation3
+				technology = excavation4
+				technology = excavation5
+			}
 		}
 	}
 
@@ -845,7 +855,7 @@ focus_tree = {
 			46 = {
 				add_resource = {
 					type = oil
-					amount = 24
+					amount = 36
 				}
 			}
 		}
