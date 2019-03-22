@@ -65,7 +65,7 @@ focus_tree = {
 			}
 		}
 
-		##mutually_exclusive = { focus = USA_reestablish_the_gold_standard }
+		#mutually_exclusive = { focus = USA_reestablish_the_gold_standard }
 		cost = 10
 
 		ai_will_do = {
@@ -452,9 +452,9 @@ focus_tree = {
 		available = {
 			
 		}
-		x = 7
-		y = 3
-		relative_position_id = USA_scietific_research_and_development_office
+		x = 2
+		y = 1
+		relative_position_id = USA_office_of_scientific_research_and_development
 		cost = 10
 		ai_will_do = {
 			factor = 1
@@ -467,10 +467,10 @@ focus_tree = {
 	focus = {
 		id = USA_magic
 		icon = GFX_goal_generic_radar
-		x = -1
-		y = 1
+		x = 8
+		y = 4
 		prerequisite = { focus = USA_black_chamber focus = USA_office_of_strategic_services}
-		relative_position_id = USA_black_chamber
+		#relative_position_id = USA_black_chamber
 		cost = 5
 
 		ai_will_do = {
@@ -503,7 +503,7 @@ focus_tree = {
 
 		prerequisite = { focus = USA_office_of_scientific_research_and_development }
 		available = { }
-		x = 1
+		x = 8
 		y = 2
 		relative_position_id = USA_limited_intervention
 		cost = 10
@@ -618,10 +618,10 @@ focus_tree = {
 	focus = {
 		id = USA_lend_lease_act
 		icon = GFX_focus_generic_treaty
-		x = 3
-		y = 2
-		prerequisite = { focus = USA_neutrality_act focus = USA_limited_intervention }
-		relative_position_id = USA_limited_intervention
+		x = -2
+		y = 1
+		prerequisite = { focus = USA_neutrality_act }
+		relative_position_id = USA_neutrality_act
 		cost = 10
 
 		ai_will_do = {
@@ -1293,10 +1293,10 @@ focus_tree = {
 		}
 
 		available_if_capitulated = yes
-		relative_position_id = USA_war_plans_division
+		#relative_position_id = USA_war_plans_division
 		continue_if_invalid = yes
-		x = 0
-		y = -1
+		x = 20
+		y = 0
 		cost = 5
 		#ai_will_do = {
 		#	factor = 1

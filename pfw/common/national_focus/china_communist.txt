@@ -641,9 +641,9 @@ focus_tree = {
 		id = PRC_peoples_war
 		icon = GFX_focus_generic_support_the_left_right
 		prerequisite = { focus = PRC_protracted_warfare }
-		x = -1
+		x = 0
 		y = 1
-		relative_position_id = PRC_provoke_japan
+		relative_position_id = PRC_protracted_warfare
 
 		cost = 10
 
@@ -672,9 +672,9 @@ focus_tree = {
 		id = PRC_100_regiments_campaign
 		icon = GFX_goal_generic_territory_or_war
 		prerequisite = { focus = PRC_mobile_warfare }
-		x = 1
+		x = 0
 		y = 1
-		relative_position_id = PRC_provoke_japan
+		relative_position_id = PRC_mobile_warfare
 
 		cost = 10
 

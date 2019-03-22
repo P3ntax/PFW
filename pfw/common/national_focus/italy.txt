@@ -376,8 +376,8 @@ focus_tree = {
 		icon = GFX_goal_generic_construct_military
 		prerequisite = { focus = ITA_italian_highways }
 		x = 0
-		y = 1
-		relative_position_id = ITA_italian_highways
+		y = 4
+		#relative_position_id = ITA_italian_highways
 		cost = 10
 		ai_will_do = {
 			factor = 1
@@ -1494,9 +1494,9 @@ focus_tree = {
 		icon = GFX_goal_generic_demand_territory
 		prerequisite = { focus = ITA_pact_of_steel }
 		#mutually_exclusive = { focus = ITA_yugoslavia_friend }
-		x = -2
-		y = 1
-		relative_position_id = ITA_pact_of_steel
+		x = 14
+		y = 3
+		#relative_position_id = ITA_pact_of_steel
 		cost = 5
 		ai_will_do = {
 			factor = 1

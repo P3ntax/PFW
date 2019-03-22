@@ -1852,7 +1852,7 @@ focus_tree = {
 	focus = {
 		id = uk_rock_focus 
 		prerequisite = { focus = uk_mediterranean_focus }
-		mutually_exclusive = { focus = uk_spain_focus }
+		#mutually_exclusive = { focus = uk_spain_focus }
 		available = {
 			118 = { is_owned_and_controlled_by = ENG }
 		} 

@@ -751,31 +751,6 @@ focus_tree = {
 		}
 	}
 
-	
-	focus = {
-		id = SOV_new_soviet_man
-		icon = GFX_goal_support_communism
-		prerequisite = { focus = SOV_aviation_cult }
-		x = 0
-		y = 1
-		relative_position_id = SOV_aviation_cult
-		cost = 10
-		ai_will_do = {
-			factor = 1
-		}
-
-		available_if_capitulated = yes
-
-		completion_reward = {
-			hidden_effect = {
-				set_rule = {
-					can_use_kamikaze_pilots = yes
-				}
-			}
-			custom_effect_tooltip = kamikaze_focus_tooltip
-		}
-	}
-
 	focus = {
 		id = SOV_socialist_realism
 		icon = GFX_goal_generic_forceful_treaty
@@ -799,9 +774,9 @@ focus_tree = {
 		id = SOV_improve_railway
 		icon = GFX_goal_generic_construct_infrastructure
 		prerequisite = { focus = SOV_peoples_commissariat }
-		relative_position_id = SOV_peoples_commissariat
-		x = 0
-		y = 1
+		#relative_position_id = SOV_peoples_commissariat
+		x = 10
+		y = 2
 		cost = 10
 		ai_will_do = {
 			factor = 1
@@ -872,9 +847,9 @@ focus_tree = {
 		id = SOV_transpolar_flights
 		icon = GFX_goal_generic_air_fighter2
 		prerequisite = { focus = SOV_ocean_going_navy }
-		relative_position_id = SOV_ocean_going_navy
-		x = 0
-		y = 1
+		#relative_position_id = SOV_ocean_going_navy
+		x = 10
+		y = 4
 		cost = 10
 		ai_will_do = {
 			factor = 1
@@ -1084,7 +1059,7 @@ focus_tree = {
 	focus = {
 		id = SOV_rehabilitated_military
 		icon = GFX_goal_generic_small_arms
-		prerequisite = { focus = SOV_great_purge focus = SOV_permanent_revolution }
+		prerequisite = { focus = SOV_great_purge }
 		mutually_exclusive = { focus = SOV_nkvd_primacy }
 		x = -2
 		y = 1
@@ -1322,13 +1297,14 @@ focus_tree = {
 
 		completion_reward = {
 			add_research_slot = 1
-		}
-		add_tech_bonus = {
+
+			add_tech_bonus = {
 				name = bomber_bonus
 				bonus = 3.0
 				uses = 1
 				category = cas_bomber			
 			}
+		}
 		
 	}
 

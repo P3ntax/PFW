@@ -471,7 +471,7 @@ focus_tree = {
 		id = GER_german_war_economy
 		icon = GFX_goal_generic_construct_mil_factory
 		prerequisite = { focus = GER_autobahn }
-		mutually_exclusive = { focus = GER_integrate_war_economies }
+		#mutually_exclusive = { focus = GER_integrate_war_economies }
 		x = 0
 		y = 1
 		relative_position_id = GER_autobahn
@@ -825,7 +825,7 @@ focus_tree = {
 		icon = GFX_goal_generic_scientific_exchange
 		prerequisite = { focus = GER_army_innovation }
 		available = {
-			NOT = { has_completed_focus = GER_anti_soviet_pact }
+			#NOT = { has_completed_focus = GER_anti_soviet_pact }
 			OR = {
 				NOT = { has_completed_focus = GER_bulwark_against_bolshevism }
 				NOT = { has_completed_focus = GER_the_great_red_menace }
@@ -1017,7 +1017,7 @@ focus_tree = {
 		id = GER_mol_rib_pact
 		icon = GFX_goal_molotov_ribbentrop_pact
 		prerequisite = { focus = GER_soviet_treaty }
-		mutually_exclusive = { focus = GER_anti_soviet_pact }
+		#mutually_exclusive = { focus = GER_anti_soviet_pact }
 		available = {
 			is_puppet = no
 			has_government = fascism
@@ -1101,15 +1101,14 @@ focus_tree = {
 		id = GER_ussr_war_goal
 		icon = GFX_goal_generic_war_with_comintern
 		prerequisite = { focus = GER_war_with_france }
+		#relative_position_id = GER_reintegrate_luxemburg_and_alsace_lorraine
+
+		x = 14
+		y = 6
+		cost = 2
+
 		will_lead_to_war_with = SOV
 
-		cancel = {
-			NOT = { country_exists = SOV }
-		}
-		x = 1
-		y = 1
-		relative_position_id = GER_war_with_france
-		cost = 2
 		historical_ai = {
 			NOT = {
 				any_home_area_neighbor_country = {
@@ -1119,6 +1118,9 @@ focus_tree = {
 		}
 		bypass = {
 			has_war_with = SOV
+		}
+		cancel = {
+			NOT = { country_exists = SOV }
 		}
 		ai_will_do = {
 			factor = 10
@@ -1161,7 +1163,7 @@ focus_tree = {
 		prerequisite = { focus = GER_rhineland }
 		available = {
 			is_puppet = no
-			has__manpower = { size > 549999 }
+			has_army_manpower = { size > 549999 }
 			NOT = { has_idea = rhineland_challenge_met }
 		}
 		cancel = {
@@ -1717,7 +1719,7 @@ focus_tree = {
 		id = GER_demand_sudetenland
 		icon = GFX_goal_demand_sudetenland
 		prerequisite = { focus = GER_anschluss }
-		mutually_exclusive = { focus = GER_czech_friend }
+		#mutually_exclusive = { focus = GER_czech_friend }
 		will_lead_to_war_with = CZE
 		will_lead_to_war_with = FRA
 		available = {
