@@ -2176,6 +2176,13 @@ technologies = {
 		light_cruiser = {
 			max_organisation = 20
 		}
+		cv_fighter = {
+			air_agility = 0.10
+		}
+		cv_nav_bomber = {
+			naval_strike_attack = 0.20
+			naval_strike_targetting = 0.10
+		}
 
 		navy_carrier_air_agility_factor = 0.10
 

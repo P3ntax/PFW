@@ -24,12 +24,12 @@ if = {
 		JAP_interservice_rivalry_balanced		
 	}
 }
-#if = {
-#	limit = {
-#		has_dlc = "Man the Guns"
-#	}
-#	add_ideas = MTG_naval_treaty_adherent
-#}
+if = {
+	limit = {
+		has_dlc = "Man the Guns"
+	}
+	#add_ideas = MTG_naval_treaty_adherent
+}
 
 set_technology = {
 	infantry_weapons = 1
@@ -74,6 +74,7 @@ if = {
 		early_ship_hull_submarine = 1
 		basic_ship_hull_submarine = 1
 		early_ship_hull_light = 1
+		basic_ship_hull_light = 1
 		early_ship_hull_cruiser = 1
 		basic_ship_hull_cruiser = 1
 		early_ship_hull_heavy = 1
@@ -108,11 +109,11 @@ if = {
 	set_naval_oob = "JAP_1936_naval_legacy"
 }
 
-create_import = {
-		resource = oil
-		factories = 2
-		exporter = USA
-}
+#create_import = {
+#		resource = oil
+#		factories = 2
+#		exporter = USA
+#}
 
 1939.1.1 = {
 
