@@ -2045,6 +2045,22 @@ ideas = {
 			modifier = {
 			}
 		}
+
+		yarrow_shipbuilders_usa = {
+			
+			allowed = {
+				original_TAG = USA
+			}
+						
+			research_bonus = {
+				naval_equipment = 0.10
+			}
+			
+			traits = { convoy_escort_naval_manufacturer }
+
+		}
+
+		
 	}
 	
 	aircraft_manufacturer = { 

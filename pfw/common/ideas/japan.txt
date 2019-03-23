@@ -676,9 +676,9 @@ ideas = {
 
 			picture = jap_supremacy_of_technology
 			
-			research_bonus = {
-				research_speed_factor = 0.10
-			}
+			modifier = { 
+				research_speed_factor = 0.1 
+			} 
 		}
 
 		JAP_superior_will = {
