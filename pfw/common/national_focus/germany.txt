@@ -574,7 +574,7 @@ focus_tree = {
 				name = air_sup_bonus
 				bonus = 1.0
 				uses = 2
-				category = battlefield_support_tree
+				category = air_doctrine
 			}
 			every_state = {
 				limit = { has_state_flag = GER_air_innovation_2air }
@@ -604,7 +604,7 @@ focus_tree = {
 				name = air_sup_bonus
 				bonus = 1.0
 				uses = 2
-				category = battlefield_support_tree
+				category = air_doctrine
 			}
 
 			if = {
@@ -695,7 +695,7 @@ focus_tree = {
 				name = op_dest_bonus
 				bonus = 1.0
 				uses = 2
-				category = battlefield_support_tree
+				category = air_doctrine
 			}
 			add_tech_bonus = {
 				name = bomber_bonus
