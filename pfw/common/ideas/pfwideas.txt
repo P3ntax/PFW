@@ -39,11 +39,11 @@ ideas = {
 
 			picture = generic_sea_focused_navy
 
-			#modifier = {
-			#	production_cost_max_ship_hull_cruiser = 5300
-			#	production_cost_max_ship_hull_heavy = 10000
-			#	production_cost_max_ship_hull_carrier = 9500
-			#}
+			modifier = {
+				industrial_capacity_dockyard = 0.05
+				production_speed_dockyard_factor = 0.10
+
+			}
 		}
 
 }
