@@ -21,6 +21,7 @@ NDefines.NCountry.SPECIAL_FORCES_CAP_MIN = 24
 NDefines.NCountry.STARTING_FUEL_RATIO = 0.25
 NDefines.NCountry.BASE_FUEL_CAPACITY = 100000
 
+
 NDefines.NCountry.CONVOYS_BEING_RAIDED_WAR_SUPPORT_PENALTY_SCALE = -0.025			-- Scaling of trade convoy raided to war support impact, will be added weekly as a war support penalty
 NDefines.NCountry.MAX_CONVOYS_BEING_RAIDED_WEEKLY_WAR_SUPPORT_PENALTY = -0.005	-- Max penalty that will gained per week from trade convoy raided
 NDefines.NCountry.CONVOYS_BEING_RAIDED_WEEKLY_WAR_SUPPORT_PENALTY_DECAY = 0.010	-- Weekly decay of trade convoy raided war support penalty
@@ -61,6 +62,7 @@ NDefines.NMilitary.RIVER_CROSSING_PENALTY_LARGE = -0.3
 
 NDefines.NMilitary.PLAYER_ORDER_PLANNING_DECAY = 0.04
 
+NDefines.NMilitary.FUEL_CAPACITY_DEFAULT_HOURS = 120
 
 NDefines.NAir.COMBAT_DAMAGE_SCALE_CARRIER = 3
 NDefines.NAir.NAVAL_COMBAT_EXTERNAL_PLANES_JOIN_RATIO = 0.10
@@ -97,8 +99,13 @@ NDefines.NNavy.ADMIRAL_TASKFORCE_CAP = 10
 NDefines.NNavy.CARRIER_STACK_PENALTY_EFFECT = 10.0
 NDefines.NNavy.DETECTION_SUBS_CHANCE_BALANCE = 45000.0
 NDefines.NNavy.CONVOY_EFFICIENCY_MIN_VALUE = 0.20
-NDefines.NNavy.NAVAL_MINES_IN_REGION_MAX = 0.0
+NDefines.NNavy.NAVAL_MINES_IN_REGION_MAX = 50.0
 NDefines.NNavy.COMBAT_CRITICAL_DAMAGE_MULT = 3.0
+
+NDefines.NNavy.ANTI_AIR_TARGETTING_TO_CHANCE = 0.1	-- was 0.2
+NDefines.NNavy.ANTI_AIR_ATTACK_TO_AMOUNT = 0.004
+
+
 
 NDefines.NNavy.MIN_GUN_COOLDOWN = 0.5											-- minimum cooldown for a gun	
 NDefines.NNavy.BASE_GUN_COOLDOWNS = { -- number of hours for a gun to be ready after shooting
