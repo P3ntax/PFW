@@ -99,12 +99,12 @@ focus_tree = {
 	focus = {
 		id = JAP_greater_east_asian_co_prosperity_sphere
 		icon = GFX_goal_generic_alliance
-		prerequisite = { focus = JAP_liaison_conference }
-		x = -1
-		y = 1
-		relative_position_id = JAP_liaison_conference
+		#prerequisite = { focus = JAP_liaison_conference }
+		x = 1
+		y = 0
+		#relative_position_id = JAP_liaison_conference
 
-		cost = 10
+		cost = 2.9
 
 		ai_will_do = {
 			factor = 2
@@ -137,11 +137,11 @@ focus_tree = {
 		icon = GFX_goal_generic_occupy_states_ongoing_war
 		prerequisite = { focus = JAP_greater_east_asian_co_prosperity_sphere }
 		will_lead_to_war_with = CHI
-		x = -2
+		x = 0
 		y = 1
 		relative_position_id = JAP_greater_east_asian_co_prosperity_sphere
 
-		cost = 5
+		cost = 1.5
 
 		available = { 
 			is_puppet = no 
@@ -373,7 +373,6 @@ focus_tree = {
 	focus = {
 		id = JAP_strike_south_doctrine
 		icon = GFX_goal_generic_navy_doctrines_tactics
-		prerequisite = { focus = JAP_greater_east_asian_co_prosperity_sphere }
 		prerequisite = { focus = JAP_sign_tripartite_pact }
 		prerequisite = { focus = JAP_liaison_conference }
 		x = 0
@@ -2327,7 +2326,7 @@ focus_tree = {
 
 
 		completion_reward = {
-			add_ideas = JAP_expand_the_snlf
+			add_ideas = pfw_special_forces
 			add_tech_bonus = {
 				name = JAP_expand_the_snlf
 				bonus = 1.0
@@ -2887,7 +2886,7 @@ focus_tree = {
 		id = JAP_supremacy_of_will
 		icon = GFX_goal_demand_sudetenland
 		prerequisite = { focus = JAP_army_expansion }
-		mutually_exclusive = { focus = JAP_supremacy_of_technology }
+		#mutually_exclusive = { focus = JAP_supremacy_of_technology }
 		x = 0
 		y = 1
 		relative_position_id = JAP_army_expansion

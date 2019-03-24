@@ -16,6 +16,16 @@ spriteTypes = {
 	}	
 
 	spriteType = {
+		name = "GFX_idea_generic_for_the_motherland"
+		texturefile = "gfx/interface/ideas/idea_generic_for_the_motherland.dds"
+	}
+
+	spriteType = {
+		name = "GFX_idea_generic_communist_army"
+		texturefile = "gfx/interface/ideas/idea_generic_communist_army.dds"
+	}
+
+	spriteType = {
 		name = "GFX_idea_generic_degauss_ship_hulls"
 		texturefile = "gfx/interface/ideas/idea_generic_degauss_ship_hulls.dds"
 	}		
@@ -441,11 +451,6 @@ spriteTypes = {
 	spriteType = {
 		name = "GFX_idea_generic_armor"
 		texturefile = "gfx/interface/ideas/idea_generic_armor.dds"
-	}
-	
-	spriteType = {
-		name = "GFX_idea_generic_communist_army"
-		texturefile = "gfx/interface/ideas/idea_generic_communist_army.dds"
 	}
 	
 	spriteType = {
