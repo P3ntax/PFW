@@ -1,4 +1,45 @@
 ability = {
+
+	pfw_naval_invasion = {
+		name = ABILITY_NAVAL_INVASION
+		desc = ABILITY_NAVAL_INVASION_DESC
+		
+		sound_effect = command_power_ability_offensive
+		
+		type = army_leader
+		
+		allowed = {
+			is_leading_army_group = no
+			is_border_war = no
+		}
+		
+		cost = 0.11
+		duration = 168
+		
+
+		unit_modifiers = {
+
+			amphibious = {
+				attack = 0.1
+			}
+		}
+
+		one_time_effect = {
+
+			add_temporary_buff_to_units = {
+				combat_offense = 0.2
+				combat_breakthrough = 0.25
+				org_damage_multiplier = -0.4
+				str_damage_multiplier = 0.3
+				
+				days = 7
+				tooltip = ABILITY_NAVAL_INVASION_TOOLTIP
+			}
+		}
+	}
+
+
+
 	force_attack = {
 		name = ABILITY_FORCE_ATTACK
 		desc = ABILITY_FORCE_ATTACK_DESC

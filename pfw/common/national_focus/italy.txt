@@ -1113,6 +1113,13 @@ focus_tree = {
 				bonus = 1.0
 				uses = 2
 				category = cv_tech
+				category = convoy_defense_tree
+			}
+			add_tech_bonus = {
+				name = cv_bonus
+				bonus = 1.0
+				uses = 2
+				category = carrier_doctrine
 			}
 		}
 	}
@@ -1359,12 +1366,10 @@ focus_tree = {
 				category = dd_tech
 			}
 			add_tech_bonus = {
-				name = con_def_bonus
+				name = ITA_light_ship_effort
 				bonus = 1.0
 				uses = 1
-				technology = convoy_sailing
-				technology = convoy_sailing_ti
-				technology = convoy_sailing_bs
+				category = convoy_defense_tree
 			}
 		}
 	}
@@ -1394,9 +1399,7 @@ focus_tree = {
 				name = ITA_escort_effort
 				bonus = 1.0
 				uses = 2
-				technology = convoy_escorts
-				technology = convoy_escorts_bs
-				technology = escort_carriers
+				category = convoy_defense_tree
 			}
 		}
 	}
@@ -1427,10 +1430,7 @@ focus_tree = {
 				name = sub_op_bonus
 				bonus = 1.0
 				uses = 2
-				technology = submarine_operations
-				technology = undersea_blockade
-				technology = convoy_interdiction
-				technology = submarine_offensive
+				category = submarine_doctrine
 			}
 		}
 	}
