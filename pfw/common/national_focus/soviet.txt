@@ -1060,11 +1060,11 @@ focus_tree = {
 		id = SOV_rehabilitated_military
 		icon = GFX_goal_generic_small_arms
 		prerequisite = { focus = SOV_great_purge }
-		mutually_exclusive = { focus = SOV_nkvd_primacy }
+		available = { has_war_with = GER }
 		x = -2
 		y = 1
 		relative_position_id = SOV_great_purge
-		cost = 10
+		cost = 20
 		ai_will_do = {
 			factor = 1
 			modifier = {
@@ -1114,7 +1114,6 @@ focus_tree = {
 		id = SOV_nkvd_primacy
 		icon = GFX_goal_generic_military_deal
 		prerequisite = { focus = SOV_great_purge }
-		mutually_exclusive = { focus = SOV_rehabilitated_military }
 		x = 0
 		y = 1
 		relative_position_id = SOV_great_purge
@@ -1272,6 +1271,12 @@ focus_tree = {
 				bonus = 1.0
 				uses = 2
 				category = rocketry
+			}
+			add_tech_bonus = {
+				name = arty_bonus
+				bonus = 1.0
+				uses = 2
+				category = artillery
 			}
 			
 		}
